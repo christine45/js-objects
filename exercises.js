@@ -17,7 +17,19 @@ A literal object.
  
  "My dog `name` is `age` year old likes to `speak`."
  */ 
+var dog = {
+name: "Kamau",
+age: 1,
+vegetarian: false,
+color: ["black", "white"],
+speak: function(){
+  return "woof!";
+}
 
+
+}
+console.log(dog.speak());
+console.log("My dog " + dog.name + " is " + dog.age + " year old likes to " + dog.speak());
 
 /*
 An empty object
@@ -32,6 +44,17 @@ An empty object
   Console.log the object.
 */
 
+var kicks = {};
+kicks.brand = "Nike";
+kicks.color = "red";
+kicks.size = 6;
+kicks.buy = function(){
+  return "Hell Yeah!";
+};
+
+console.log(kicks);
+console.log(kicks.buy());
+
 
 /* 
    Declare a variable named `plainBox` and set its value to be an EMPTY object.
@@ -41,7 +64,11 @@ An empty object
             - add a property named `contents` and set it to be an empty array.
 */
 
-
+var plainBox = {};
+plainBox.color = "blue";
+plainBox.size = 8;
+plainBox.contents = [];
+/*
 /*
    Declare a variable named `stockCar` and create the following properties (key-value pairs) to the object:
             - add a key named `model` and set its value to the name of an American car manufacturer.
@@ -50,25 +77,48 @@ An empty object
             - add a key named `driver` and set it to be `null`.
             - add a key named `passengers` and set it to be an empty array.
 */
-
-
 /*
-   Add new property inside a function
-   Declare a variable named `plainPerson`. Set its value to be an EMPTY object with no properties.
-
-   Next, declare a function named `buildPerson` and then define three parameters. The first parameter will be named `person` 
-   and the second will be `nameString` and the third will be `age`. Within this function you will modify the `person` object 
-   by:
-            - adding a property called `name` and set its value to be the second parameter.
-            - adding a property called `age` and set its value to be the third parameter.
-
-   The function will return the first parameter.
-   Finally, invoke your new function while passing in the `plainPerson` object and additional agrument values, then store 
-   the return value in a variable named `completePerson`. Use `console.log` three times to print the entire object, just 
-   the value at `name`, and just the value at `age`.
- */
+*/
+var stockCar = {
+  model: "Toyota",
+  year: 2011,
+  automaticTransmission: true,
+  driver: null,
+  passengers: []
+  }
 
 
+
+
+
+   
+  //*Add new property inside a function
+ //   Declare a variable named `plainPerson`. Set its value to be an EMPTY object with no properties.
+
+ //   Next, declare a function named `buildPerson` and then define three parameters. The first parameter will be named `person` 
+ //   and the second will be `nameString` and the third will be `age`. Within this function you will modify the `person` object 
+ //   by:
+ //            - adding a property called `name` and set its value to be the second parameter.
+ //            - adding a property called `age` and set its value to be the third parameter.
+
+ //   The function will return the first parameter.
+ //   Finally, invoke your new function while passing in the `plainPerson` object and additional agrument values, then store 
+ //   the return value in a variable named `completePerson`. Use `console.log` three times to print the entire object, just 
+ //   the value at `name`, and just the value at `age`.
+ // */
+
+var plainPerson = {};
+  function buildPerson(person, nameString, age) {
+    person.name = nameString;
+    person.age = age;
+      return person;
+  }
+  var me = buildPerson({},"Christine", 23);
+  console.log(me);
+  var completePerson = buildPerson(plainPerson, "Ian", 10);
+  console.log(completePerson);
+  console.log(completePerson.name);
+  console.log(completePerson.age);
 /*
    Display values of objects that are inside an array
    Declare a new variable named `arrayOfObjects` and set it to be [this array of objects
@@ -93,8 +143,67 @@ An empty object
             =====
             ...
  */
+var arrayOfObjects = [
+  {
+    id: 0,
+    date: "Monday Jan 25 2015 2:01 PM",
+    total: "279.38"
+  },
+  {
+    id: 1,
+    date: "Monday Jan 27 2015 11:31 AM",
+    total: "79.80"
+  },
+  {
+    id: 2,
+    date: "Monday Feb 1 2015 7:56 AM",
+    total: "15.62"
+  },
+  {
+    id: 3,
+    date: "Monday Feb 1 2015 9:43 AM",
+    total: "19.83"
+  },
+  {
+    id: 4,
+    date: "Monday Feb 1 2015 11:08 PM",
+    total: "56.69"
+  },
+  {
+    id: 5,
+    date: "Monday Feb 13 2015 10:22 AM",
+    total: "137.92"
+  },
+  {
+    id: 6,
+    date: "Monday Feb 14 2015 6:54 PM",
+    total: "938.65"
+  },
+  {
+    id: 7,
+    date: "Monday Feb 14 2015 7:17 PM",
+    total: "43.77"
+  },
+  {
+    id: 8,
+    date: "Monday Feb 14 2015 7:18 PM",
+    total: "28.54"
+  },
+  {
+    id: 9,
+    date: "Monday Feb 14 2015 7:18 PM",
+    total: "194.33"
+  }
+];
+function printProcessedOrders(orders){
+  for(var i =0; i<orders.length; i++){
+    console.log(orders[i].id);
+    console.log(orders[i].date);
+    console.log(orders[i].total);
+  }
+}
 
-
+printProcessedOrders(arrayOfObjects);
 /*
    Addition with an object
    Declare a new variable named sumObj and set it to be a new object with the properties `a`, `b`, and `result`. 
@@ -107,8 +216,19 @@ An empty object
         Invoke your function and pass in your object, store the result to a variable named sumObjResult and use `console.log` 
         to inspect your results.
 */
+var sumObj = {
+  a: 5,
+  b: 2,
+  result: undefined
+}
+function objectAddition(first){
+  first.result = first.a + first.b;
+    return first;
+    
+}
 
-
+sumObjResult = objectAddition(sumObj);
+console.log(sumObjResult);
 /*
    Print sum function and add as new key-value
    Declare a new function named printObj and a single parameter which will be the object from the challenge just above. 
@@ -136,8 +256,15 @@ An empty object
         Invoke your function and pass in your object (which should be `plainBox`), store the result to a variable named 
         plainBoxResult and use `console.log` to inspect your results.
  */
-
-
+function putInPlainBox(object){
+  
+  for (var i = 0; i<10; i++){
+    object.contents.push(Math.floor(Math.random()*10));
+  }
+      return object;
+}
+var putInPlainBoxResult = putInPlainBox(plainBox);
+console.log(putInPlainBoxResult);
 /*
    Detecting transmission
         Declare a function named detectingTransmission and a single parameter which will be an object. Within this function 
